@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.css' />
+	</head>
+	<body> 
+		<div role='navigation' class='container'>
+			<ul class='nav nav-tabs'>
+				<li role='presentation' class='active'> 
+					<a href='/'> Home </a> 
+				</li>
+				{% for category in categories %}
+				<li role='presentation'> 
+					<a href='/categories/{{category}}'> {{category }} </a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div>
+			{% block content %}
+			{% block %}
+		</div>
+	</body>
+</html>
