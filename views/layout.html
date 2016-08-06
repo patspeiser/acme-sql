@@ -2,7 +2,11 @@
 	<head>
 		<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.css' />
 	</head>
-	<body> 
+	<body>
+		<div> 
+			<h1> Acme Products SQL  </h1>
+			<h6> <a href='https://github.com/patspeiser/acme-sql' target='blank'> by Pat Speiser </a> </h6>
+		</div> 
 		<div role='navigation' class='container'>
 			<ul class='nav nav-tabs'>
 				<li role='presentation' class='active'> 
@@ -10,7 +14,7 @@
 				</li>
 				{% for category in categories %}
 				<li role='presentation'> 
-					<a href='/categories/{{category}}'> {{category }} </a>
+					<a href='/categories/{{category.id}}'> {{ category.name }} </a>
 				</li>
 				{% endfor %}
 			</ul>

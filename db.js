@@ -1,8 +1,9 @@
 var pg = require('pg');
+var pgURL = '';
 var _db;
 
 // connect to DB
-module.export = {
+module.exports = {
 	connect: function(cb){
 		if (_db) {
 			return cb(_db);

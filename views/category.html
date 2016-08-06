@@ -1,5 +1,19 @@
 {% extends 'layout.html' %}
-
-<div>
-	<h1> Categories page </h1>
-</div>
+{% block content %}
+	<div>
+		<table class='table'>
+			{% for product in products %}
+				<tr>
+					<td> 
+						<h5> {{product.name}} <h5> 
+					</td>
+					<td>
+						<form method='POST' action='/categories/:categoryId/product/:productId?_method=DELETE'>
+							<button type='submit' class='btn btn-danger'> Delete </button>
+						</form>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+{% endblock %}
