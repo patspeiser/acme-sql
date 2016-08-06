@@ -9,13 +9,13 @@
 		</div> 
 		<div role='navigation' class='container'>
 			<ul class='nav nav-tabs'>
-				<li role='presentation' class='active'> 
+				<li {% if !category %} class='active'{% endif %} role='presentation'> 
 					<a href='/'> Home </a> 
-				</li>
-				{% for category in categories %}
-				<li role='presentation'> 
-					<a href='/categories/{{category.id}}'> {{ category.name }} </a>
-				</li>
+				</li> 
+				{% for _category in categories %}
+					<li {% if _category.id == category %} class='active' {% endif %} role='presentation'>
+						<a href='/categories/{{_category.id}}'> {{ _category.name }} </a>
+					</li>
 				{% endfor %}
 			</ul>
 		</div>
