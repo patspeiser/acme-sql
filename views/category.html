@@ -1,6 +1,21 @@
 {% extends 'layout.html' %}
 {% block content %}
-	<div>
+	<div class='container'>
+
+<!-- show add product -->
+		<table class='table'>
+			<tr>
+				<form method='POST' action='/categories/{{category}}'>
+					<td>
+						<input placeholder='Add a new product' name='newProduct' class='form-control'> </input> 
+					</td>
+					<td>
+						<button type='submit' class='btn btn-primary'> Add Product </button>
+					</td>
+				</form>
+			</tr>
+		</table>
+<!-- show products -->
 		<table class='table'>
 			{% for product in products %}
 				<tr>
@@ -8,12 +23,23 @@
 						<h5> {{product.name}} <h5> 
 					</td>
 					<td>
-						<form method='POST' action='/categories/:categoryId/product/:productId?_method=DELETE'>
+						<form method='POST' action='/categories/{{category}}/products/{{product.id}}?_method=DELETE'>
 							<button type='submit' class='btn btn-danger'> Delete </button>
 						</form>
 					</td>
 				</tr>
 			{% endfor %}
 		</table>
+<!-- delete category -->
+		<table class='table'>
+			<tr>
+				<td>
+					<form method='POST' action='/categories/{{category}}?_method=DELETE'>
+						<button type='submit' class='btn btn-danger'> Delete Category </button>
+					</form>
+				</td>
+			</tr>
+		</table>
+	
 	</div>
 {% endblock %}
